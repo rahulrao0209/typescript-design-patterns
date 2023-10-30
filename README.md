@@ -18,3 +18,12 @@ A repository consisting of short programs related to _Object-oriented-principles
 - [Liskov substitution principle](./solid-design-principles/liskov-substitution-principle/index.ts)
 - [Interface segregation principle](./solid-design-principles/interface-segregation-principle/index.ts)
 - [Dependency inversion principle](./solid-design-principles/dependency-inversion-principle/index.ts)
+
+---
+
+### Design patterns
+
+**Creational Design patterns**
+
+- [Singleton Pattern](./creational-design-patterns/singleton-pattern/index.ts)
+- [Prototype Pattern](./creational-design-patterns/prototype-pattern/index.ts)
