@@ -36,3 +36,54 @@ object_1.value = "Hello!";
 console.log("object-1 value: ", object_1.value);
 console.log("object-2 value: ", object_2.value);
 console.log("object-1 === object2-: ", object_1 === object_2);
+
+/** Singleton example 2
+ *  Create a Logger class with a log method that is shared accross
+ *  the application. The log method is responsible for saving all
+ *  application logs to a single file on the system.
+ */
+
+class Logger {
+  static #instance: Logger;
+
+  private constructor() {}
+
+  static get instance(): Logger {
+    if (!Logger.#instance) Logger.#instance = new Logger();
+    return Logger.#instance;
+  }
+
+  log(path: string, message: string): void {
+    console.log(`Write log [${message}] to file at path: ${path}`);
+  }
+}
+
+const logger = Logger.instance;
+logger.log("files/myFile", "data log message");
+
+/**
+ * When to use singleton pattern?
+ *
+ * 1. When using global variables.
+ *    When using a global variable that needs to be accessible by
+ *    several parts of the system, but should have the same value.
+ *    Global variables can also be used for variables that may have
+ *    multiple access point but only a single control.
+ *
+ * 2. Repeated initialization.
+ *    If the code has repeated expensive initialization of the same
+ *    object then using singleton may be a good option.
+ *    Example would be a database connection object. A database connection
+ *    object can be created just once as a single instance and shared throughout
+ *    the application. The Singleton class can also expose other methods related
+ *    to the database connection which could be used to manipulate the single
+ *    database connection object.
+ *
+ *    Another example would be to use singleton where we need to disallow duplicate
+ *    values. Or in cases where our application might be creating unnecessary duplicate
+ *    instances where they are not required.
+ *
+ * 3. Pass data to deeply nested objects.
+ *    Singleton can also be used when we want to pass an instance to deeply nested child classes
+ *    where the data within the objects needs to be persistent.
+ */
