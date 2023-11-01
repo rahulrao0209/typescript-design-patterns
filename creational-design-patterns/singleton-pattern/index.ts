@@ -87,3 +87,36 @@ logger.log("files/myFile", "data log message");
  *    Singleton can also be used when we want to pass an instance to deeply nested child classes
  *    where the data within the objects needs to be persistent.
  */
+
+/**
+ * Caveats of singleton pattern
+ * 1. Global state
+ * Using singleton leads to shared global state leading to high
+ * coupling between our classes.
+ *
+ * 2. Difficult to test
+ * Preserving state between tests, increases testing complexity.
+ *
+ * 3. Subclassing cannot be done.
+ * Singleton classes do not allow inheritance due to the presence of
+ * private constructor and static methods and the semantics of inheritance.
+ * Due to this there is a chance of Singleton classes getting too large as
+ * they may need to maintain a lot of the functionality themselves.
+ *
+ * 4. Memory consumption.
+ * As noted in the above point, Singleton's run the risk of getting too large
+ * as subclassing cannot be done. Also, Singleton objects need to stay in memory
+ * throughout the duration of the application lifecycle as many other parts depend
+ * on the single instance. This can potentially lead to overconsumption of memory.
+ */
+
+/**
+ * Singleton pattern use-cases
+ * In general singleton pattern should apply when a single instance
+ * of a class must be used.
+ * - Loggers
+ * - Loading configuration data
+ * - Caching
+ * - Service proxies
+ * - Accessing shared resources like database connections.
+ */
