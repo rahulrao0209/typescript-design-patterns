@@ -89,3 +89,11 @@ circle2.properties.color = "orange";
 console.log("Circle1: ", circle1);
 console.log("Circle2: ", circle2);
 console.log("Circle1 === Circle2: ", circle1 === circle2);
+
+/**
+ * Advantages of the prototype pattern
+ * 1. Avoid reference errors in JavaScript/TypeScript
+ * 2. Clone objects effeciently
+ * 3. Efficient object manipulation
+ * 4. Simplifying object creation.
+ */
