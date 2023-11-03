@@ -92,3 +92,16 @@ console.log("Minimum viable product (MVP): ", mvp.features);
 director.buildFullFeaturedProduct();
 const ffp = builder.product;
 console.log("Full featured product (FFP): ", ffp.features);
+
+/**
+ * When to use the builder pattern?
+ * Some of the scenarios in which builder pattern can
+ * be used are
+ * 1. When complex object creation is required.
+ * 2. When the object creation needs to be done in steps.
+ * 3. When the object can be configured in many different ways.
+ *    It would be impractical to provide constructors for every
+ *    different combination.
+ * 4. For code clarity (for example if the constructor has many
+ *    parameters and its not clear what each parameter is for.)
+ */
