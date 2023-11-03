@@ -25,5 +25,6 @@ A repository consisting of short programs related to _Object-oriented-principles
 
 **Creational Design patterns**
 
-- [Singleton Pattern](./creational-design-patterns/singleton-pattern/index.ts)
-- [Prototype Pattern](./creational-design-patterns/prototype-pattern/index.ts)
+- [Singleton pattern](./creational-design-patterns/singleton-pattern/index.ts)
+- [Prototype pattern](./creational-design-patterns/prototype-pattern/index.ts)
+- [Builder pattern](./creational-design-patterns/builder-pattern/index.ts)
