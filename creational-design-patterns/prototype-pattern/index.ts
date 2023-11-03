@@ -97,3 +97,29 @@ console.log("Circle1 === Circle2: ", circle1 === circle2);
  * 3. Efficient object manipulation
  * 4. Simplifying object creation.
  */
+
+/**
+ * Caveats of the prototype pattern
+ * Complex nested objects are difficult to copy and clone.
+ * Depending on the complexity of the object to be cloned,
+ * care must be taken to handle all the edge cases for cloning.
+ *
+ * Cloning is especially difficult if the object has properties
+ * which are not JSON compatible such as functions.
+ *
+ * If the object is JSON compatible, a simple way to clone (deep copy) objects
+ * is to use -
+ * const clonedObj = JSON.parse(JSON.stringify(originalObj))
+ */
+
+/**
+ * A few use cases for prototype pattern
+ * - Graphics editors
+ *   Clone identical copies of complex objects.
+ *
+ * - Game development
+ *   Spawn multiple units of similar objects.
+ *
+ * - Distributed systems and databases
+ *   Spawn similar units or entities effectively.
+ */
