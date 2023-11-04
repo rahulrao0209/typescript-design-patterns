@@ -93,6 +93,134 @@ director.buildFullFeaturedProduct();
 const ffp = builder.product;
 console.log("Full featured product (FFP): ", ffp.features);
 
+/*******************************************************************************************************/
+
+/**
+ * Example-2
+ * Customer onboarding system
+ */
+interface CustomerI {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phoneNumber: string;
+}
+
+class Customer implements CustomerI {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phoneNumber: string;
+
+  constructor(
+    firstName: string,
+    lastName: string,
+    email: string,
+    phoneNumber: string
+  ) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.email = email;
+    this.phoneNumber = phoneNumber;
+  }
+}
+interface CustomerBuilderI {
+  setFirstName(firstName: string): CustomerBuilderI;
+  setLastName(lastName: string): CustomerBuilderI;
+  setEmail(email: string): CustomerBuilderI;
+  setPhoneNumber(phoneNumber: string): CustomerBuilderI;
+  build(): CustomerI;
+}
+
+class CustomerBuilder implements CustomerBuilderI {
+  firstName: string = "";
+  lastName: string = "";
+  email: string = "";
+  phoneNumber: string = "";
+
+  constructor() {
+    this.build();
+  }
+
+  setFirstName(firstName: string): CustomerBuilderI {
+    this.firstName = firstName;
+    return this;
+  }
+  setLastName(lastName: string): CustomerBuilderI {
+    this.lastName = lastName;
+    return this;
+  }
+  setEmail(email: string): CustomerBuilderI {
+    this.email = email;
+    return this;
+  }
+  setPhoneNumber(phoneNumber: string): CustomerBuilderI {
+    this.phoneNumber = phoneNumber;
+    return this;
+  }
+
+  build(): Customer {
+    const customer = new Customer(
+      this.firstName,
+      this.lastName,
+      this.email,
+      this.phoneNumber
+    );
+    return customer;
+  }
+}
+
+class CustomerDirector {
+  #builder: CustomerBuilderI;
+
+  constructor(builder: CustomerBuilderI) {
+    this.#builder = builder;
+  }
+
+  buildMinimalCustomer(firstName: string, lastName: string, email: string) {
+    return this.#builder
+      .setFirstName(firstName)
+      .setLastName(lastName)
+      .setEmail(email)
+      .build();
+  }
+
+  buildDetailedCustomer(
+    firstName: string,
+    lastName: string,
+    email: string,
+    phoneNumber: string
+  ) {
+    return this.#builder
+      .setFirstName(firstName)
+      .setLastName(lastName)
+      .setEmail(email)
+      .setPhoneNumber(phoneNumber)
+      .build();
+  }
+}
+
+const customerBuilder: CustomerBuilder = new CustomerBuilder();
+const customerDirector: CustomerDirector = new CustomerDirector(
+  customerBuilder
+);
+
+const minimalCustomer = customerDirector.buildMinimalCustomer(
+  "Rahul",
+  "Rao",
+  "rahul@example.com"
+);
+
+const detailedCustomer = customerDirector.buildDetailedCustomer(
+  "Rahul",
+  "Rao",
+  "rahul@example.com",
+  "+91-56546565"
+);
+
+console.log("Minimal customer: ", minimalCustomer);
+console.log("Detailed customer: ", detailedCustomer);
+
 /**
  * When to use the builder pattern?
  * Some of the scenarios in which builder pattern can
